@@ -1,0 +1,31 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build folders
+bin/
+obj/
+
+# NuGet packages
+packages/
+
+# IIS Express
+*.dbmdl
+
+# Logs
+*.log
+
+# Publish
+publish/
+
+# Temporary files
+*.tmp
+*.cache
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Visual Studio Code
+.vscode/
