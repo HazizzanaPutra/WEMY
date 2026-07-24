@@ -130,7 +130,7 @@ NIM : **3312011042**
 
 Program Studi D3 Teknik Informatika
 
-Universitas Muhammadiyah Pontianak
+Politeknik Negeri Batam
 
 ---
 
