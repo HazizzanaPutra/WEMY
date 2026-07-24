@@ -1,0 +1,107 @@
+﻿/* Responsive */
+@media(max-width:1200px) {
+
+    .hero h1 {
+        font-size: 58px;
+    }
+}
+
+@media(max-width:992px) {
+
+    .sidebar {
+        left: -240px;
+    }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+    .page-content {
+        margin-left: 0;
+    }
+
+    .logo-area {
+        position: static;
+        transform: none;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+        .hero h1 {
+            font-size: 46px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 42px;
+        }
+}
+
+@media(max-width:576px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        line-height: 34px;
+    }
+}
+
+/* MEMBER DASHBOARD */
+.membership-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    margin-top: 25px;
+}
+
+.membership-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.membership-icon {
+    font-size: 42px;
+}
+
+.membership-info {
+    margin-top: 20px;
+}
+
+    .membership-info p {
+        margin-bottom: 15px;
+    }
+
+.status-active {
+    color: #22c55e;
+    font-weight: 700;
+}
+
+.status-inactive {
+    color: #ff7b2f;
+    font-weight: 700;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.badge {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: .3s;
+}

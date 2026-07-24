@@ -1,0 +1,63 @@
+﻿/*REGISTER PAGE*/
+
+.register-page {
+    padding: 130px 0;
+    background: #F8FAFC;
+    min-height: 100vh;
+}
+
+.register-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 45px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+    .register-card h2 {
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+.register-text {
+    text-align: center;
+    color: #777;
+    margin-bottom: 35px;
+}
+
+.form-register {
+    height: 52px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+    .form-register:focus {
+        border-color: #F57C3A;
+        box-shadow: none;
+    }
+
+.btn-register {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 30px;
+    background: #F57C3A;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+    .btn-register:hover {
+        background: #E96A22;
+    }
+
+.login-link {
+    text-align: center;
+    margin-top: 25px;
+}
+
+    .login-link a {
+        color: #F57C3A;
+        font-weight: 600;
+    }

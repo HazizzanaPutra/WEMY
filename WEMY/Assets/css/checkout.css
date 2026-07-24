@@ -1,0 +1,24 @@
+﻿.checkout-card {
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.checkout-item {
+    margin-bottom: 25px;
+}
+
+    .checkout-item label {
+        font-weight: 600;
+        color: #666;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .checkout-item h3 {
+        color: var(--orange);
+        font-weight: 700;
+    }

@@ -1,0 +1,274 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WEMY.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> | WEMY</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <%-- <webopt:bundlereference runat="server" path="~/Content/css" /> --%>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Assets/fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="Assets/css/styles.css" rel="stylesheet" />
+    <link href="Assets/css/home.css" rel="stylesheet" />
+    <link href="Assets/css/checkout.css" rel="stylesheet" />
+    <link href="Assets/css/login.css" rel="stylesheet" />
+    <link href="Assets/css/responsive.css" rel="stylesheet" />
+    <script src="<%= ResolveUrl("~/Assets/js/site.js") %>" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <header class="top-navbar">
+            <button type="button" id="btnMenu" class="menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="logo-area">
+
+                <h4 class="text-orange">
+                    <i class="fa-solid fa-spa"></i>WEMY Yoga
+                 </h4>
+            </div>
+
+            <div class="top-right">
+
+                <!-- Guest -->
+                <asp:Panel
+                    ID="panelGuest"
+                    runat="server">
+
+                    <asp:LinkButton
+                        ID="btnSignIn"
+                        runat="server"
+                        CssClass="signin"
+                        PostBackUrl="~/Login.aspx">Sign In
+                     </asp:LinkButton>
+
+                    <asp:Button
+                        ID="btnTrial"
+                        runat="server"
+                        Text="Start Free Trial"
+                        CssClass="trial-button"
+                        OnClick="btnTrial_Click" />
+                    </asp:Panel>
+
+                <!-- User Login -->
+                <asp:Panel
+                    ID="panelLogin"
+                    runat="server"
+                    Visible="false">
+                    <i class="fa-solid fa-user-circle me-2"></i>
+                    <asp:Label
+                        ID="lblUser"
+                        runat="server"
+                        CssClass="signin">
+                    </asp:Label>
+
+                    <asp:LinkButton
+                        ID="btnLogout"
+                        runat="server"
+                        CssClass="signin ms-3"
+                        OnClick="btnLogout_Click"> Logout
+                     </asp:LinkButton>
+                </asp:Panel>
+
+            </div>
+        </header>
+        <aside id="sidebar" class="sidebar">
+            <!-- Sidebar guest/user-->
+            <ul id="menuGuest" runat="server">
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Beranda</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#membership">
+                        <i class="fa-solid fa-id-card"></i>
+                        <span>Paket Membership</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#schedule">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Jadwal Yoga</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>Instruktur</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>Tentang Kami</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Kontak</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Sidebar member -->
+            <ul id="menuMember" runat="server" visible="false">
+
+                <li>
+                    <a href="Dashboard.aspx">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="YogaSchedule.aspx">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Jadwal Yoga</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="MembershipHistory.aspx">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Riwayat</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Profile.aspx">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Profil</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- sidebar administrator -->
+            <ul id="menuAdmin" runat="server" visible="false">
+
+                <li>
+                    <a href="Dashboard.aspx">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ManageMembers.aspx">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Manajemen Member</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Membership.aspx">
+                        <i class="fa-solid fa-box"></i>
+                        <span>Paket Membership</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="YogaClasses.aspx">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Jadwal Yoga</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Payments.aspx">
+                        <i class="fa-solid fa-money-check-dollar"></i>
+                        <span>Verifikasi Pembayaran</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Reports.aspx">
+                        <i class="fa-solid fa-chart-column"></i>
+                        <span>Laporan</span>
+                    </a>
+                </li>
+
+            </ul>
+        </aside>
+        <div class="page-content" id="pageContent">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Login Popup -->
+        <div id="loginModal" class="login-modal">
+            <div class="login-box">
+                <button type="button" id="closeLogin" class="close-login">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <h3>SIGN IN</h3>
+                <asp:TextBox
+                    ID="txtLoginEmail"
+                    runat="server"
+                    CssClass="login-input"
+                    placeholder="Email Address" />
+
+
+                <asp:TextBox
+                    ID="txtLoginPassword"
+                    runat="server"
+                    TextMode="Password"
+                    CssClass="login-input"
+                    placeholder="Password" />
+
+                <asp:Button
+                    ID="btnLogin"
+                    runat="server"
+                    Text="SIGN IN"
+                    CssClass="login-button"
+                    OnClick="btnLogin_Click" />
+                <a href="#" class="forgot-password">Forgot your password?</a>
+                <div class="login-divider">
+                    <span>OR</span>
+                </div>
+                <a href="Register.aspx" class="create-account">Create an account</a>
+                <p> For Testing Only (Administrator Account)<br /> Admin email : admin@wemy.com password : admin123</p>
+            </div>
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+
+    <script src="Assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
